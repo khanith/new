@@ -1,0 +1,51 @@
+<div class="col-md-6">
+  <!-- <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Patient Details added successfully.
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+  <h2 class="text-center">Add Patients</h2>
+  <form>
+    <div class="form-group">
+      <label for="pat_Name">Name:</label>
+      <input type="name"  [(ngModel)]="user.pat_Name" placeholder="Name" name="name" class="form-control" id="pat_Name">
+    </div>
+    
+    <div class="form-group">
+      <label for="Age">Age:</label>
+      <input [(ngModel)]="user.pat_Age" placeholder="Age" name="age" class="form-control" id="age">
+    </div>
+
+    <div class="form-group">
+      <label for="v_date">Visiting date:</label> <input [(ngModel)]="user.v_date" placeholder="visiting date" name="v_date" class="form-control" id="v_date">
+    </div>
+  
+    <div class="form-group">
+      <label for="patient_ID">Patient Id:</label>
+      <input  [(ngModel)]="user.patient_ID" placeholder="Patient Id" name="Patient ID" class="form-control" id="patient_ID">
+    </div>
+    <div class="form-group">
+      <label for="Last_vdate">Last Visiting Date:</label>
+      <input [(ngModel)]="user.last_vdate" placeholder="Last Visiting Date" name="last_vdate" class="form-control" id="last_vdate">
+    </div>
+    <div class="form-group">
+      <label for="Pat_Symptoms">Symptoms:</label>
+      <input [(ngModel)]="user.pat_Symptoms" placeholder="Symptoms" name="symptoms" class="form-control" id="pat_Symptoms">
+    </div>
+    <br>
+
+
+    <div class="form-group">
+      <label for="name">Doctor Assigned:</label>
+      <!-- <input [(ngModel)]="user.emp_id" placeholder="Doctor id" name="symptoms" class="form-control" id="user.doc_id"> -->
+      <select [(ngModel)]="user.ename" (change)="setChangeHandler($event)">
+        <option value="" disabled selected>Choose Doctor to be Assigned</option>
+        <option *ngFor='let n of name2' value="{{n}}">{{n}}</option>
+      </select>
+    </div>
+ 
+
+    <button class="btn btn-success" (click)="createEmployee()">Create</button>
+  </form>
+  </div>

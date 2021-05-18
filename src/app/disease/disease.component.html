@@ -1,0 +1,29 @@
+ <!-- <div class="col-md-6">
+  <table style="margin-left:auto;right:auto;top: auto;" width=350px height=150px>
+  <thead >
+  <tr>
+       <th>Disease name</th>
+       <th>Surgical Limit</th>
+    </tr>
+  </thead>  
+  <tbody style="background-color:violet;">
+      <tr *ngFor="let disease of diseases">
+          <td>{{disease.disease_name}}</td>
+          <td>{{disease.surgical_limit}}</td>
+          </tr>
+  </tbody>
+    </table>
+    
+
+  </div>   -->
+  <br>
+  <br>
+<div class="form-group" >
+    <label for="name">Disease:</label>
+    <!-- <input [(ngModel)]="user.emp_id" placeholder="Doctor id" name="symptoms" class="form-control" id="user.doc_id"> -->
+    <select [(ngModel)]="diseases.disease_name" (change)="setChangeHandler($event)">
+      <option value="" disabled selected>diseases</option>
+      <option *ngFor='let n of diseases' value="{{n}}">{{n}}</option>
+    </select>
+  </div>
+

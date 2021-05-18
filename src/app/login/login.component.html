@@ -1,0 +1,35 @@
+<div class="container">
+
+  <div class="fake">
+   <div id="us">
+    <b> User Name : <input type="text" name="username" [(ngModel)]="username"></b>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  <br><br>
+</div>
+<div id="pwd">
+    <b>Password : <input type="password" name="password" [(ngModel)]="password"></b>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  <br><br>
+</div>
+<div>
+    <button  id="yu" (click)=checkLogin() class="btn">
+      <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <b>Login</b>
+    </button>
+  </div>
+</div>
+<br><br><br><br>
+
+</div>
+<div>
+  <a [routerLink]="[ '/genuser']" ><button id="hu">Register Here!</button></a>
+</div>

@@ -1,0 +1,23 @@
+<header>
+  <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
+  <div><a href="#" class="navbar-brand">Perioperative Management system</a></div>
+  
+  <ul class="navbar-nav">
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/disease" class="nav-link">Disease</a></li>
+
+
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle  *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Patients</a>
+        <div ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdown01">
+            <a  routerLink="/" class="dropdown-item" routerLink="/" >View Patients</a>
+            <a class="dropdown-item" routerLink="/add">Add New Patient</a>
+        </div>
+      </li>
+     
+  </ul>
+  
+  </nav>
+  
+  </header>

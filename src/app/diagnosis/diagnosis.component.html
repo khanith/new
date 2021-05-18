@@ -1,0 +1,43 @@
+<div class="conatiner" style="padding-top:20px;" #content>  
+  <div class="col-sm-5" style="padding-top:20px;padding-bottom:20px;" >  
+               
+  </div>  
+</div>  
+  <table class="table table-striped">  
+    <thead   class="thead-dark">  
+      <tr>
+        <th>Diagnosis id</th>
+        <th>patient ID</th>
+        <th>BP</th>
+        <th>Blood Test Results</th>
+        <th>Surgery Required</th>
+        <th>Surgical Date</th>
+        <th>Anesthetic Name</th>
+        <th>Nurse Name</th>
+        <th>Disease</th>
+        </tr>
+    </thead>  
+    <tbody>  
+      <tr *ngFor="let Patient_Diagnosis of diagnosises">  
+        <td>{{Patient_Diagnosis.d_id}}</td>
+        <td>{{Patient_Diagnosis.patients }}</td>
+        <td>{{Patient_Diagnosis.bp}}</td>
+        <td>{{Patient_Diagnosis.blood_test_results}}</td>
+        <td>{{Patient_Diagnosis.surgery_required}}</td>
+        <td>{{Patient_Diagnosis.surgical_date}}</td>
+        <td>{{Patient_Diagnosis.anesthetic_name}}</td>
+        <td>{{Patient_Diagnosis.nurse_name}}</td>
+        <td> <select [(ngModel)]="diseases.disease_name" (change)="setChangeHandler($event)">
+          <option value="" disabled selected>diseases</option>
+          <option *ngFor='let n of diseases' value="{{n}}">{{n}}</option>
+        </select></td>
+        <!-- <div class="form-group" >
+          <label for="name">Disease:</label>
+           <input [(ngModel)]="user.emp_id" placeholder="Doctor id" name="symptoms" class="form-control" id="user.doc_id"> 
+         
+        </div> -->
+       </tr>
+    </tbody>  
+  </table>
+
+  <button (click)="downloadPDF()">Download</button>

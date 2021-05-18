@@ -1,0 +1,46 @@
+<!-- 
+  <nav class ="navbar navbar-expand-sm bg-warning ">
+    <div><a   class="navbar-brand">Perioperative Management system</a></div>
+    
+    <ul class="navbar-nav">
+       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/uf" class="nav-link">View Patients</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/add" class="nav-link">Add New Patient</a></li> 
+        <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/patupdate" class="nav-link">Doctor Login</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+      
+    </ul>
+    
+    </nav> -->
+    
+    
+  <div class="conatiner" style="padding-top:20px;">  
+    <div class="col-sm-5" style="padding-top:20px;padding-bottom:20px;" >  
+                 
+    </div>  
+  </div>  
+    <table class="table table-striped">  
+      <thead   class="thead-dark">  
+        <tr>
+          <th> Patient name</th>
+          <th>Patient ID</th>
+          <th>Patient Visiting Date</th>
+          <th>Patient Last Visiting Date</th>
+          <th>Patient Symptoms</th>
+          <th>Doctor Assigned</th>
+          </tr>
+      </thead>  
+      <tbody>  
+        <tr *ngFor="let employee of employees |paginate: { itemsPerPage: 7, currentPage: p }">  
+          <td>{{employee.pat_Name}}</td>
+          <td>{{employee.patient_ID}}</td>
+          <td>{{employee.v_date}}</td>
+          <td>{{employee.last_vdate}}</td>
+          <td>{{employee.pat_Symptoms}}</td>
+          <td>{{employee.ename}}</td>
+          
+          </tr>
+      </tbody>  
+      <ul class="pagination">  <pagination-controls (pageChange)="p = $event"></pagination-controls> </ul>  
+    </table> 
+  
