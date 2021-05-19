@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {  HttpClientService, PatientDiagnosis,Disease } from '../service/httpclient.service';
-import * as jsPDF from 'jspdf';
+//import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import * as html2pdf from 'html2pdf.js'
+
 
 @Component({
   selector: 'app-diagnosis',
@@ -11,17 +13,20 @@ export class DiagnosisComponent implements OnInit {
   diagnosises:PatientDiagnosis;
   diseases:Disease;
   
-  // @ViewChild('content') content:ElementRef;
-  // public downloadPDF(){
-  //    let doc=new jsPDF();
-  //    let specialElementHandlers={
-  //      '#editor':function(element, renderer){
-  //         return true;
-  //      }
-  //    };
-
-  //    let content=this.content.nativeElement;
-  // }
+  download(){
+    const options={
+      name:'output.pdf',
+      image:{ type:'jpeg'},
+      html2canvas:{},
+      jsPDF:{orientation:'landscape'}
+    }
+    const element: Element= document.getElementById('table')
+    html2pdf()
+        .from(element)
+        .set(options)
+        .save()
+  }
+ 
 
   constructor(
     private httpClientService:HttpClientService,
